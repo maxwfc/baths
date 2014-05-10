@@ -1,0 +1,135 @@
+.field > input, .profile_elem
+{
+	padding:5px;
+	border:none;
+	margin:5px;
+	border-radius:5px;
+	width: 403px;
+	font-size:14px;
+}
+
+.field > textarea
+{
+	width:403px;
+	height:50px;
+	border:none;
+	padding:5px;
+	margin:5px;
+	font-size:14px;
+	border-radius:5px;
+}
+
+#user_password
+{
+	float:left;
+	width: 190px;
+}
+#user_password_confirmation
+{
+	float:right;
+	width: 190px;
+}
+.field > img
+{
+	display:block;
+	padding-top:30px;
+	max-width:300px;
+	max-height:220px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+input[type=submit]
+{
+	margin:5px;
+	border:none;
+	color: black;
+	background-color: #fc58c4;
+	margin-top:20px;
+	font-size:20px;
+	text-shadow: 0px 0px 2px white;
+}
+
+input[type=submit]:hover 
+{
+	content: "asdf";
+	text-decoration:underline;
+}
+
+.actions
+{
+	text-align:center;
+}
+
+::-moz-placeholder
+{
+	font-style:italic;
+	color:black;
+}
+
+.user_edit_left
+{
+	position:relative;
+	float:left;
+	display:inline-block;
+	padding:20px;
+	overflow:hidden;
+	width: 423px;
+	height: 580px;
+	background-color:white;
+	border:3px solid silver;
+	transform: rotate(-2deg);
+	transition: 0.5s;
+	-webkit-transform: rotate(-2deg);
+	z-index:1;
+}
+
+.user_edit_right
+{
+	transition: 0.5s;
+	margin-top: 15px;
+	padding:20px;
+	padding-left:none;
+	position:relative;
+	left: -35px;
+	z-index:0;
+	float:right;
+	width:184px;
+	height: 580px;
+	border: 3px solid silver;
+	background-color:white;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	transform: rotate(2deg);
+	-webkit-transform: rotate(2deg);
+}
+
+.user_edit_right:hover, .user_edit_left:hover
+{
+	z-index:2;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+}
+
+::-webkit-input-placeholder
+{
+	font-style:italic;
+	color:black;
+}
+
+:-moz-placeholder
+{
+	font-style:italic;
+	color:black;
+}
+
+:-ms-input-placeholder
+{
+	font-style:italic;
+	color:black;
+}
+
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

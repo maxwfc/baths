@@ -1,0 +1,12 @@
+<h2>archive</h2>
+<% monthYear = "" %>
+<% @articles.map{ |article| article if article.published }.each do |article| %>
+	<% if monthYear != article.created_at.to_formatted_s(:month_year) %>
+		<% monthYear = article.created_at.to_formatted_s(:month_year) %>
+		<h3><%= monthYear %></h3>
+	<% end %>
+	<p>
+	<% user = User.find(article.user_id) %>
+</p>
+	<%= raw "#{ link_to article.title, article } by #{ link_to user.name, user } </br> #{ article.created_at }</br>" %>
+<% end %>

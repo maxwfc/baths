@@ -1,0 +1,10 @@
+<h2>Our authors</h2>
+<% @users.each do |user| %>
+	<div style = " padding:5px; margin: 50px; margin-left:15px">
+	<div style = "display:inline-block;width: 70px;"><% image_url = user.avatar.present? ? user.avatar(:thumb) : "smile.jpg" %>
+	<%= image_tag image_url, style: "margin-left:auto;margin-right:auto;display:block" %>
+</div>
+	<h3 style = "display:inline-block; vertical-align:top"><%= link_to user.name, user %></h3> </br>
+	<%= raw user.bio %>
+</div>
+<% end %>

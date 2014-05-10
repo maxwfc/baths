@@ -1,0 +1,41 @@
+
+
+<div class = "user_edit_left">
+
+  <div class="field">
+	<h1>About <%= @author.name %></h1>
+  </div>
+  <div class="field" style = "padding-bottom:30px">
+  	<% if @user.avatar.present? %>
+		<%= image_tag @user.avatar.url(:medium) %>
+	<% else %>
+		<%= image_tag "http://leadingpersonality.files.wordpress.com/2013/05/smile.jpg" %>
+	<% end %>
+  </div>
+  <div class="field">
+    <div class = "profile_elem">
+		<%= @author.first_and_initials %> 
+		<% if @author.twitter.present? %>
+			 tweets from the handle <%= link_to @author.twitter, "http://www.twitter.com/#{@author.twitter}" %> and
+		<% end %>
+		<%= " has been writing for Bathshebas since #{@author.created_at.to_formatted_s(:month_year)}" %>.
+	</div>
+	<% if @author.bio.present? %>
+    	<div class = "profile_elem"><%= raw "Here's #{@author.first_and_initials}'s bio: <em>#{@author.bio}</em>" %></div>
+	<% end %>
+  </div>
+</div>
+
+<div class = "user_edit_right">
+	<h2><%= @author.first_and_initials + "'s articles" %></h2>
+	<% monthYear = "" %>
+	<% @articles.map{ |article| article if article.published }.each do |article| %>
+		<% if monthYear != article.created_at.to_formatted_s(:month_year) %>
+			<% monthYear = article.created_at.to_formatted_s(:month_year) %>
+			<h3><%= monthYear %></h3>
+		<% end %>
+			<p><%= link_to article.title, article %></p>
+		<br>
+	<% end %>
+
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bathshebas
+  <% if @article %>
+	  <%= "- #{@article.title}"  %>
+  <% elsif @author %>	  
+  	<%= "- #{@author.name}" %>
+  <% end %>
+	
+
+  </title>
+  <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class = "container">
+		<div class = "compose">
+			<% if !@user.blank? %>
+				 <%= link_to "logout", :logout, method: :post %>
+			 <% end %>
+		</div>
+
+		<%= link_to image_tag("bathshebas-logo.png", :alt => "bathshebas logo", :class => 'logo left'), root_path %>
+		<div class = "subtext right">
+			Lady stuff. With a side of judgment.
+		</div>
+		<div style = "clear:both; padding:10px"></div>
+			
+			<%= yield %>
+</div>
+
+<footer>
+	MORE &#8675; <p><%= link_to "authors", users_path %> <%= link_to "archive", "archive" %> <%= link_to "contact", "mailto:contact@bathshebas.net?subject=Bathshebas" %></p>
+</footer>
+
+</body>
+</html>

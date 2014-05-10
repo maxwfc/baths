@@ -1,0 +1,36 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+	  <div>
+		  the passed params were: <%= params %>
+	  </div>
+    </div>
+  <% end %>
+  <div>
+	<% if @user.id == 1 %>
+    	Author: <%= f.select( :user_id, options_for_select(User.all.collect { |u| [ u.name, u.id ] }, selected: @user.id)) %>
+	<% end %>
+	<p />
+  </div>
+  <div>
+	  Featured image: <%= f.file_field :mainImage %>
+  </div>
+</br>
+  <div>
+    <%= f.text_field( :title, {placeholder: "Title..."}) %> 
+	<%= image_tag @article.mainImage(:thumb) if @article.mainImage.present? %>
+  </div>
+  <div>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <button type = "submit"><%= @user.id == 1 ? "publish now" : "submit for review" %></button> <button type = "submit">save as draft</button>
+  </div>
+<% end %>
