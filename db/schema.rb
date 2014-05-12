@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140508002843) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: true do |t|
     t.integer  "user_id"
     t.text     "body"
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140508002843) do
     t.integer  "excerpt_length"
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "rich_rich_files", force: true do |t|
     t.datetime "created_at"

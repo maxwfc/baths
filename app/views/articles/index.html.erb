@@ -1,6 +1,5 @@
 
-<% @articles.each do |article| %>
-
+<% @articles.sort{ |x,y| y.created_at <=> x.created_at }.each do |article| %>
 	<headline class = "main"><%= link_to article.title.titleize, article %></headline>
 	<hr>
 	<% author = User.find(article.user_id) %>

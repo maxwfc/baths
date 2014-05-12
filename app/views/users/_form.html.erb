@@ -46,7 +46,7 @@
 </div>
 
 <div class = "user_edit_right">
-	<h2><%= @author.first_and_initials + "'s articles" %></h2>
+	<h2><%= @author.name + "'s articles" %></h2>
 	<% monthYear = "" %>
 	<% @articles.each do |article| %>
 		<% if monthYear != article.created_at.to_formatted_s(:month_year)%>
