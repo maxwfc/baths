@@ -1,12 +1,12 @@
 <div class = "user_edit_left">
 
-	<%= form_for(@user) do |f| %>
-	  <% if @user.errors.any? %>
+	<%= form_for(@author) do |f| %>
+	  <% if @author.errors.any? %>
 	    <div id="error_explanation">
-	      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+	      <h3><%= pluralize(@author.errors.count, "error") %> prohibited this user from being saved:</h3>
 
 	      <ul>
-	      <% @user.errors.full_messages.each do |msg| %>
+	      <% @author.errors.full_messages.each do |msg| %>
 	        <li><%= msg %></li>
 	      <% end %>
 	      </ul>
@@ -23,7 +23,7 @@
 	  <div class="field">
 		<h3>profile pic</h3>
 	  	<%= f.file_field :avatar %> </br>
-		<%= image_tag @user.avatar.url(:thumb) if @user.avatar.present? %>
+		<%= image_tag @author.avatar.url(:thumb) if @author.avatar.present? %>
 	  </div>
 	  <div class="field">
 		<h3>bio</h3>
@@ -39,7 +39,7 @@
 	    <%= f.password_field :password_confirmation, {placeholder: "repeat password"} %>
 	  </div>
 	  <div class="actions">
-	    <%= f.submit @user.id.blank? ? "add" : "update" %>
+	    <%= f.submit @author.id.blank? ? "add" : "update" %>
 	  </div>
 	<% end %>
 
