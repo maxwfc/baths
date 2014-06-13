@@ -6,8 +6,8 @@
 	<h1>About <%= @author.name %></h1>
   </div>
   <div class="field" style = "padding-bottom:30px">
-  	<% if @user.avatar.present? %>
-		<%= image_tag @user.avatar.url(:medium) %>
+  	<% if @author.avatar.present? %>
+		<%= image_tag @author.avatar.url(:medium) %>
 	<% else %>
 		<%= image_tag "http://leadingpersonality.files.wordpress.com/2013/05/smile.jpg" %>
 	<% end %>
