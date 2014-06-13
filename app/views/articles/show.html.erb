@@ -2,7 +2,7 @@
 <div class = "clear"></div>
 <hr>
 <div style = "font-size:14px; padding:15px;" >
-	<% if ( !@author.avatar(:thumb).blank? ) %>
+	<% if ( !@author.avatar.blank? ) %>
 		<%= image_tag @author.avatar(:thumb), style: "vertical-align:middle" %>
 	<% end %>
 	 by <%= link_to @author.name.titleize, @author %></div>
