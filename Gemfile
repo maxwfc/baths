@@ -39,6 +39,8 @@ gem 'paperclip'
 
 gem 'rmagick'
 
+gem 'aws-sdk'
+
 gem 'yaml_db'
 
 gem 'pg'

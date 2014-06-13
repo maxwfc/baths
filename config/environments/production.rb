@@ -77,4 +77,14 @@ Baths::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  # config/environments/production.rb
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['baths'],
+      :access_key_id => ENV['AKIAIGCNZTW2CY6IDWPA'],
+      :secret_access_key => ENV['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']
+    }
+  }
 end
