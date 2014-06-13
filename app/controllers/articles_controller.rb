@@ -2,8 +2,6 @@ class ArticlesController < ApplicationController
 
         # only_admins added while site backend is incomplete so as to prevent people other 
         # than Emily from modifying articles.
-        
-  before_action :only_admins, only: [:create, :update, :destroy]
   
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :ordered_articles, only: [:index, :archive]
