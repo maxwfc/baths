@@ -1,7 +1,11 @@
 <headline class = "article"><%= @article.title.titleize %></headline>
 <div class = "clear"></div>
 <hr>
-<div style = "font-size:14px; padding:15px;" ><%= image_tag @author.avatar(:thumb), style: "vertical-align:middle" %> by <%= link_to @author.name.titleize, @author %></div>
+<div style = "font-size:14px; padding:15px;" >
+	<% if ( !author.avatar(:thumb).blank? ) %>
+		<%= image_tag @author.avatar(:thumb), style: "vertical-align:middle" %>
+	<% end %>
+	 by <%= link_to @author.name.titleize, @author %></div>
 <div class = "article-text"> 
 	<%= image_tag @article.mainImage(:main), class: "centered" if @article.mainImage.present? %>
 	<%= raw @article.body  %>
